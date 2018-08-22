@@ -1,14 +1,14 @@
 <?php
 /**
- * WP PRofiles Hub
+ * WP Profiles Hub
  *
- * @package     WPPRofiles-Hub
+ * @package     WPProfiles-Hub
  * @author      Richard Tape, Jeremy Felt
  * @copyright   2018 WPProfiles
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name: WPPRofiles Hub
+ * Plugin Name: WPProfiles Hub
  * Plugin URI:  https://wpprofiles.com/plugins/wpprofiles-hub/
  * Description: The Hub for WP Profiles. Where folks control their profiles.
  * Version:     0.0.1
