@@ -11,7 +11,7 @@
  * Plugin Name: WPProfiles Hub
  * Plugin URI:  https://wpprofiles.com/plugins/wpprofiles-hub/
  * Description: The Hub for WP Profiles. Where folks control their profiles.
- * Version:     0.0.5
+ * Version:     0.0.6
  * Author:      Richard Tape, Jeremy Felt
  * Author URI:  https://wpprofiles.com/
  * Text Domain: wpprrofiles-hub
