@@ -25,6 +25,16 @@ class WPProfiles_Role {
 	 */
 	public function register() {
 
+		/**
+		 * Ran before adding a custom role.
+		 *
+		 * @since 0.0.5
+		 * @param string The role slug
+		 * @param string The role display name
+		 * @param array The role capabilities
+		 */
+		do_action( 'wp_profiles_hub_pre_register_role', $this->get_role_slug(), $this->get_display_name(), $this->get_capabilities() );
+
 		add_role( $this->get_role_slug(), $this->get_display_name(), $this->get_capabilities() );
 
 	}// end register()
@@ -35,6 +45,14 @@ class WPProfiles_Role {
 	 * @return void
 	 */
 	public function deregister() {
+
+		/**
+		 * Ran before removing a custom role.
+		 *
+		 * @since 0.0.5
+		 * @param string The role slug
+		 */
+		do_action( 'wp_profiles_hub_pre_register_role', $this->get_role_slug() );
 
 		remove_role( $this->get_role_slug() );
 

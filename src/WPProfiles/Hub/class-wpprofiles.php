@@ -55,8 +55,10 @@ class WPProfiles {
 	 * @return void
 	 */
 	public function add_profile_role() {
+
 		$profile_role = new \WPProfiles\Hub\Roles\Profile();
 		$profile_role->register();
+
 	}// end add_profile_role()
 
 
@@ -77,8 +79,10 @@ class WPProfiles {
 	 * @return void
 	 */
 	public function remove_profile_role() {
+
 		$profile_role = new \WPProfiles\Hub\Roles\Profile();
 		$profile_role->deregister();
+
 	}// end remove_profile_role()
 
 }// end class WPProfiles

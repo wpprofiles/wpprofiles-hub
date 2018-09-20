@@ -11,7 +11,7 @@
  * Plugin Name: WPProfiles Hub
  * Plugin URI:  https://wpprofiles.com/plugins/wpprofiles-hub/
  * Description: The Hub for WP Profiles. Where folks control their profiles.
- * Version:     0.0.4
+ * Version:     0.0.5
  * Author:      Richard Tape, Jeremy Felt
  * Author URI:  https://wpprofiles.com/
  * Text Domain: wpprrofiles-hub
@@ -20,8 +20,9 @@
  */
 
 /**
- * @Usage $test = new \WPProfiles\Hub\Roles\Profile()
- *        would load the file ./src/WPProfiles/Hub/Roles/class-profile.php
+ * @Usage     $test = new \WPProfiles\Hub\Roles\Profile()
+ *            would load the file ./src/WPProfiles/Hub/Roles/class-profile.php
+ *            i.e. it is ./src/{namespace}/class-{classname}.php
  * @Reference https://tommcfarlin.com/simple-autoloader-for-wordpress/
  */
 spl_autoload_register( function( $filename ) {
