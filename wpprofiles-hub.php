@@ -11,7 +11,7 @@
  * Plugin Name: WPProfiles Hub
  * Plugin URI:  https://wpprofiles.com/plugins/wpprofiles-hub/
  * Description: The Hub for WP Profiles. Where folks control their profiles.
- * Version:     0.0.2
+ * Version:     0.0.3
  * Author:      Richard Tape, Jeremy Felt
  * Author URI:  https://wpprofiles.com/
  * Text Domain: wpprrofiles-hub
@@ -81,6 +81,28 @@ spl_autoload_register( function( $filename ) {
 	}
 
 } );
+
+// Register our activation and deactivation hooks.
+register_activation_hook( __FILE__, 'register_activation_hook__wp_profiles_activate' );
+register_deactivation_hook( __FILE__, 'register_deactivation_hook__wp_profiles_deactivate' );
+
+/**
+ * Register a hook so we can perform actions on plugin activation.
+ *
+ * @return void
+ */
+function register_activation_hook__wp_profiles_activate() {
+	do_action( 'wp_profiles_activate' );
+}// end register_activation_hook__wp_profiles_activate()
+
+/**
+ * Register a hook so we can perform actions on plugin deactivation.
+ *
+ * @return void
+ */
+function register_deactivation_hook__wp_profiles_deactivate() {
+	do_action( 'wp_profiles_deactivate' );
+}// end register_deactivation_hook__wp_profiles_deactivate()
 
 // Boot ourselves up
 $wp_profiles = new \WPProfiles\Hub\WPProfiles();
