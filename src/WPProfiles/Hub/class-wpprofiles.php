@@ -31,10 +31,10 @@ class WPProfiles {
 	public function register_hooks() {
 
 		// Run on plugin activation. Add our roles.
-		add_action( 'wp_profiles_activate', array( $this, 'add_roles' ) );
+		add_action( 'wp_profiles_hub_activate', array( $this, 'add_roles' ) );
 
 		// Run on plugin deactivation. Cleanup.
-		add_action( 'wp_profiles_deactivate', array( $this, 'remove_roles' ) );
+		add_action( 'wp_profiles_hub_deactivate', array( $this, 'remove_roles' ) );
 
 	}// end register_hooks()
 
