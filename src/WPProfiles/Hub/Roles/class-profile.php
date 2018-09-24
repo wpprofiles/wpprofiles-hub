@@ -17,6 +17,7 @@ class Profile extends WPProfiles_Role {
 		/**
 		 * Filters the role slug for the Profile User Role.
 		 *
+		 * @param string the slug to use for the profile user role.
 		 * @since 0.0.5
 		 */
 		$this->role_slug = apply_filters( 'wp_profiles_hub_profile_role_slug', 'profile' );
