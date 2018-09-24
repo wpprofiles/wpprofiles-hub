@@ -30,6 +30,7 @@ class Profile_User {
 	 */
 	public function register_hooks() {
 
+		// Easy way to remove the admin colour scheme picker.
 		remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
 	}// end register_hooks()
