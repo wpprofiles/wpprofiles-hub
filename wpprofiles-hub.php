@@ -8,24 +8,32 @@
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name: WPProfiles Hub
- * Plugin URI:  https://wpprofiles.com/plugins/wpprofiles-hub/
- * Description: The Hub for WP Profiles. Where folks control their profiles.
- * Version:     0.0.7
- * Author:      Richard Tape, Jeremy Felt
- * Author URI:  https://wpprofiles.com/
- * Text Domain: wpprrofiles-hub
- * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Plugin Name:  WPProfiles Hub
+ * Plugin URI:   https://wpprofiles.com/plugins/wpprofiles-hub/
+ * Description:  The Hub for WP Profiles. Where folks control their profiles.
+ * Version:      0.0.8
+ * Author:       Richard Tape, Jeremy Felt
+ * Requires PHP: 7
+ * Author URI:   https://wpprofiles.com/
+ * Text Domain:  wpprrofiles-hub
+ * License:      GPL-2.0+
+ * License URI:  http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
+spl_autoload_register( 'wp_profiles_hub_autoload_register_callback' );
+
 /**
- * @Usage     $test = new \WPProfiles\Hub\Roles\Profile()
+ * Callback for the spl_autoload_register function to set up our
+ * custom autoloader.
+ *
+ * @param string $filename The full path to the class to load
+ * @return void
+ * @usage     $test = new \WPProfiles\Hub\Roles\Profile()
  *            would load the file ./src/WPProfiles/Hub/Roles/class-profile.php
  *            i.e. it is ./src/{namespace}/class-{classname}.php
- * @Reference https://tommcfarlin.com/simple-autoloader-for-wordpress/
+ * @reference https://tommcfarlin.com/simple-autoloader-for-wordpress/
  */
-spl_autoload_register( function( $filename ) {
+function wp_profiles_hub_autoload_register_callback( $filename ) {
 
 	// First, separate the components of the incoming file.
 	$file_path = explode( '\\', $filename );
@@ -81,7 +89,7 @@ spl_autoload_register( function( $filename ) {
 		include_once $fully_qualified_path;
 	}
 
-} );
+}// end wp_profiles_hub_autoload_register_callback()
 
 // Register our activation and deactivation hooks.
 register_activation_hook( __FILE__, 'register_activation_hook__wp_profiles_hub_activate' );
