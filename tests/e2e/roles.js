@@ -1,20 +1,38 @@
 import { Role, Selector } from 'testcafe';
 import { mainURL, adminUserDetails, profileUser1Details } from './environment.js';
 
-const adminUser = Role( mainURL + '/login', async t => {
-    await Selector( '#user_login' );
+const adminUser = Role( mainURL + '/wp-admin/', async t => {
+
+    const userLoginInput    = await Selector( '#user_login' );
+    const passwordInput     = await Selector( '#user_pass' );
+    const loginSubmitButton = await Selector( '#wp-submit' );
+
     await t
-        .typeText( '#user_login', adminUserDetails.username )
-        .typeText( '#user_pass', adminUserDetails.password )
-        .click( '#wp-submit' );
+        .click( userLoginInput )
+        .typeText( userLoginInput, adminUserDetails.username, { replace: true } )
+        .expect( userLoginInput.value ).eql( profileUser1Details.username );
+
+    await t
+        .click( passwordInput )
+        .typeText( passwordInput, adminUserDetails.password, { replace: true } )
+        .click( loginSubmitButton );
 } );
 
-const profileUser1 = Role( mainURL + '/login', async t => {
-    await Selector( '#user_login' );
+const profileUser1 = Role( mainURL + '/wp-admin/', async t => {
+
+    const userLoginInput    = await Selector( '#user_login' );
+    const passwordInput     = await Selector( '#user_pass' );
+    const loginSubmitButton = await Selector( '#wp-submit' );
+
     await t
-        .typeText( '#user_login', profileUser1Details.username )
-        .typeText( '#user_pass', profileUser1Details.password )
-        .click( '#wp-submit' );
+        .click( userLoginInput )
+        .typeText( userLoginInput, profileUser1Details.username, { replace: true } )
+        .expect( userLoginInput.value ).eql( profileUser1Details.username );
+
+    await t
+        .click( passwordInput )
+        .typeText( passwordInput, profileUser1Details.password, { replace: true } )
+        .click( loginSubmitButton );
 } );
 
 export {
